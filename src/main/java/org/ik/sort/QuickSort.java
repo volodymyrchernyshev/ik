@@ -12,44 +12,53 @@ public class QuickSort {
     }
 
     public void quickSort(List<Integer> arr, int start, int end) {
-
         if (start < end) {
-            int pivot = partition(arr, start, end);
-            quickSort(arr, start, pivot - 1);
-            quickSort(arr, pivot + 1, end);
+            Pivot middle = partition(arr, start, end);
+            quickSort(arr, start, middle.left-1);
+            quickSort(arr, middle.right + 1, end);
         }
     }
 
-    private int partition(List<Integer> arr, int start, int end) {
+    protected Pivot partition(List<Integer> arr, int start, int end) {
+        int pivot = new Random().nextInt((end - start) + 1) + start;
+        Collections.swap(arr, start, pivot);
 
+        int pivotLeft = start;
+        int pivotValue = arr.get(start);
+        int pivotRight = pivotLeft;
 
-        int randomPivot = new Random().nextInt((end - start) + 1) + start;
-        Collections.swap(arr, start, randomPivot);
-
-        int pivotI = start;
-        int pivot = arr.get(start);
-        start++;
-
-        while (start <= end) {
-
-            if (arr.get(start) < pivot) {
-                start++;
-            } else if (arr.get(end) > pivot) {
-                end--;
+        for(int i = start + 1; i <= end; i++){
+            int current = arr.get(i);
+            if(current == pivotValue){
+                pivotRight++;
+                swap(arr, i, pivotRight);
+            } else if(current > pivotValue){
+                //ok, do nothing
             } else {
-                swap(arr, start, end);
-                start++;
-                end--;
+                if(pivotRight +1 != i ) {
+                    swap(arr, pivotLeft, pivotRight + 1);
+                }
+                swap(arr, i, pivotLeft);
+                pivotRight++;
+                pivotLeft++;
             }
-
         }
-        swap(arr, pivotI, end);
-        return end;
+        return new Pivot(pivotLeft, pivotRight);
     }
 
     private void swap(List<Integer> arr, int a, int b) {
         int t = arr.get(a);
         arr.set(a, arr.get(b));
         arr.set(b, t);
+    }
+
+    static class Pivot{
+        int left;
+        int right;
+
+        public Pivot(int left, int right) {
+            this.left = left;
+            this.right = right;
+        }
     }
 }
