@@ -14,9 +14,9 @@ public class QuickSort {
     public void quickSort(List<Integer> arr, int start, int end) {
 
         if (start < end) {
-            int middle = partition(arr, start, end);
-            quickSort(arr, start, middle - 1);
-            quickSort(arr, middle + 1, end);
+            int pivot = partition(arr, start, end);
+            quickSort(arr, start, pivot - 1);
+            quickSort(arr, pivot + 1, end);
         }
     }
 

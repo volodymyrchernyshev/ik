@@ -7,11 +7,9 @@ public class HeapSort {
 
     public List<Integer> sort(List<Integer> in) {
         int n = in.size();
-
         // Build heap (rearrange array)
         for (int i = n / 2 - 1; i >= 0; i--)
             heapify(in, n, i);
-
         // One by one extract an element from heap
         for (int i = n - 1; i >= 0; i--) {
             // Move current root to end

@@ -5,9 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class CountingSort {
-
     public List<Integer> sort(List<Integer> arr) {
-
         Integer max = Collections.max(arr);
         Integer min = Collections.min(arr);
         int[] temp = new int[max - min + 1];

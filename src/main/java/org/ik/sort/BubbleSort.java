@@ -3,7 +3,6 @@ package org.ik.sort;
 import java.util.List;
 
 public class BubbleSort {
-
     static List<Integer> sort(List<Integer> arr) {
         if(arr.size() <2) return arr;
 
@@ -20,11 +19,9 @@ public class BubbleSort {
         }
         return arr;
     }
-
     static void swap(List<Integer> arr, int a, int b){
         int value = arr.get(a);
         arr.set(a, arr.get(b));
         arr.set(b, value);
     }
-
 }

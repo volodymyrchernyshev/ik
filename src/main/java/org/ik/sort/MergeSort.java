@@ -13,7 +13,7 @@ public class MergeSort {
 
 
     public void sort(List<Integer> arr, int start, int end) {
-        if (start == end) {
+        if (start >= end) {
             return;
         }
         //start is our offset
