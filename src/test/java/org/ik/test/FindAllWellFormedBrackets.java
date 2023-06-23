@@ -65,5 +65,38 @@ public class FindAllWellFormedBrackets {
 
     }
 
+    @Test
+    public void test2() {
+        System.out.println(find_all_well_formed_brackets2(3));
+        System.out.println(find_all_well_formed_brackets2(4));
+    }
+
+
+    static ArrayList<String> find_all_well_formed_brackets2(Integer n) {
+        // Write your code here.
+        ArrayList<String> results = new ArrayList<String>();
+        StringBuilder slate = new StringBuilder();
+        find_all_well_formed_brackets(n,slate,0,0,results);
+        return results;
+    }
+    static void find_all_well_formed_brackets(Integer n,StringBuilder slate,int left,int right,
+                       ArrayList<String> results){
+        if(right > left || left > n || right>n){
+            return;
+        }
+
+        if(left == n && right == n){
+            results.add(slate.toString());
+            return;
+        }
+
+
+        slate.append("(");
+        find_all_well_formed_brackets(n,slate,left+1,right,results);
+        slate.delete(left + right, slate.length());
+        slate.append(")");
+        find_all_well_formed_brackets(n,slate,left,right+1,results);
+        slate.delete(left + right, slate.length());
+    }
 
 }
