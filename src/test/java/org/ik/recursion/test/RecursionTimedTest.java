@@ -1,4 +1,4 @@
-package org.ik.test;
+package org.ik.recursion.test;
 
 import org.junit.jupiter.api.Test;
 

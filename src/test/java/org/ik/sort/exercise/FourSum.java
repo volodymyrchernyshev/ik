@@ -1,4 +1,4 @@
-package org.ik.exercise;
+package org.ik.sort.exercise;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

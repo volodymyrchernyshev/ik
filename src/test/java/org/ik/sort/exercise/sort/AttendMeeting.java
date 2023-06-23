@@ -1,4 +1,4 @@
-package org.ik.exercise.sort;
+package org.ik.sort.exercise.sort;
 
 import org.junit.jupiter.api.Test;
 
