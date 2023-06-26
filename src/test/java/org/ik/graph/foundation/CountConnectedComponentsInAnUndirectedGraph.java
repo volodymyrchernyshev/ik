@@ -1,34 +1,36 @@
-package org.ik.graph;
+package org.ik.graph.foundation;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class DFSTraversalOfAGraph {
+public class CountConnectedComponentsInAnUndirectedGraph {
 
 
+    static Integer number_of_connected_components(Integer n, ArrayList<ArrayList<Integer>> edges) {
 
-    static ArrayList<Integer> dfs_traversal(Integer n, ArrayList<ArrayList<Integer>> edges) {
-        // Write your code here.
-        ArrayList<Integer> ret = new ArrayList<>();
         ArrayList<ArrayList<Integer>> list = convertToAdjancencyList(edges, n);
 
+        int ret = 0;
         boolean[] visited = new boolean[n];
         Arrays.fill(visited, false);
         for(int i = 0; i  < n; i++){
             if(!visited[i]){
-                recursiveDFS(list, i, visited, ret);
+                recursiveDFS(list, i, visited);
+                ret++;
             }
         }
+
+
 
         return ret;
     }
 
-    private static void recursiveDFS(ArrayList<ArrayList<Integer>> list, int current, boolean[] visited, ArrayList<Integer> ret) {
+
+    private static void recursiveDFS(ArrayList<ArrayList<Integer>> list, int current, boolean[] visited) {
         visited[current] = true;
-        ret.add(current);
         for (Integer child : list.get(current)) {
             if(!visited[child]){
-                recursiveDFS(list, child, visited, ret);
+                recursiveDFS(list, child, visited);
             }
         }
     }

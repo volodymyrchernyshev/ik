@@ -1,4 +1,4 @@
-package org.ik.graph;
+package org.ik.graph.foundation;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

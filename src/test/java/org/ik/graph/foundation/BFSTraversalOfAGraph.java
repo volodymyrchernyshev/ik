@@ -1,4 +1,4 @@
-package org.ik.graph;
+package org.ik.graph.foundation;
 
 import java.util.*;
 
