@@ -8,11 +8,8 @@ public class GenerateAllSubsetsOfASet {
 
     @Test
     public void test(){
-        System.out.println(generate_all_subsets("xy"
-        ));
+        System.out.println(generate_all_subsets("xy"));//[, y, x, xy]
     }
-
-
 
     static ArrayList<String> generate_all_subsets(String s) {
         ArrayList<String> ret = new ArrayList<>();
