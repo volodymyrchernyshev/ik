@@ -7,7 +7,6 @@ public class NumberofWaystoSelectBuildings {
 
     @Test
     public void test(){
-
         System.out.println(numberOfWays("001101"));
     }
 
