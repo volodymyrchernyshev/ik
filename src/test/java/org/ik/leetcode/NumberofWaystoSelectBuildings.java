@@ -7,7 +7,7 @@ public class NumberofWaystoSelectBuildings {
 
     @Test
     public void test(){
-        Arr
+
         System.out.println(numberOfWays("001101"));
     }
 
